@@ -89,8 +89,7 @@ The quick start instructions use the basic configuration options in `conf_local.
 3. Advanced configuration options:
     - `cert_store_type` is the type of key value store to use for certificates, using simplekv. simplekv_fs uses the file system, and simplekv_gridfs uses gridfs
         - when using gridfs (mongodb) as a certificate store you can use `mongo-seed/load_gfs.py` script to load the certificates into mongodb    
-    - `mongodb_uri` is used to access your mongodb instance for storing recipient introductions/requests. The canonical form is `mongodb://<username>:<password>@<domain>:<mongo_port>/<db_name>`. Examples follow:
-        - Local mongo installation: `mongodb_uri = mongodb://localhost:27017/test`
+    - `mongodb_uri` is used to access your mongodb instance for storing recipient introductions/requests. The canonical form is `mongodb://<username>:<password>@<domain>:<mongo_port>/<db_name>`. Examples follow:        - Local mongo installation: `mongodb_uri = mongodb://localhost:27017/test`
         - Docker installation: `mongodb_uri = mongodb://<DOCKER_MACHINE_IP>:27017/test`, where DOCKER_MACHINE_IP is given by `docker-machine ip`
     - `notifier` is a noop by default. This is used if you want to enable web form certificate requests, as opposed to or in addition to, cert-wallet introductions. To send mandrill notifications, use `mail`
     - `mandrill_api_key` if notifier is `mail`, this is used to send out notifications when a user signs up. Setup your mandrill account at https://www.mandrill.com/
@@ -138,5 +137,5 @@ This project uses tox to validate against several python environments.
 
 ## Contact
 
-Contact us at [the Blockcerts community forum](http://community.blockcerts.org/).
+Contact us at [the Blockcerts community forum](http://community.blockcerts.org/)
 
