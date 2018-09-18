@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -13,8 +13,10 @@
     <title>Blockchain Certificates Viewer</title>
 
     {% block css %}
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel=stylesheet type=text/css href="{{ theme_static('css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro" rel="stylesheet">
+    <link rel=stylesheet type=text/css href="{{ theme_static('css/cagov.core.css') }}">
+    <link rel=stylesheet type=text/css href="{{ theme_static('css/colorscheme-oceanside.css') }}">
+    <link rel=stylesheet type=text/css href="{{ theme_static('css/style.css') }}">
     {% endblock %}
 
 
@@ -25,36 +27,69 @@
     <![endif]-->
 </head>
 <body>
-<div class="container">
-    {% block content %}{% endblock %}
-    {% block footer %}
-        <div class="row hide-on-print" id="footer-info">
-            <div class="col-md-6 col-sm-8 col-xs-12">
-                <h6 id="footer-start">Contact: <span class="font-light"><a href="mailto:{{ config.ISSUER_EMAIL }}">{{ config.ISSUER_EMAIL }}</a></span>
-                </h6>
-                {% if request.path != "/faq" %}
-                    <h6 id="footer-start">Questions? <span class="font-light">Check out our <a href="/faq">FAQ page</a></span>
-                    </h6>
-                {% endif %}
-                {% if request.path != "/" %}
-                    <h6 id="footer-start">
-            <span class="font-light">
-              <a href="/">Home</a>&nbsp;|&nbsp;<a href="http://www.blockcerts.org/"> Powered by the Blockchain Certificates Project </a>
-            </span>
-                    </h6>
-                {% else %}
-                    <h6 id="footer-start">
-            <span class="font-light">
-              <a href="http://www.blockcerts.org/"> Powered by the Blockchain Certificates Project </a>
-            </span>
-                    </h6>
-                {% endif %}
-            </div>
+    <header role="banner" id="header" class="global-header">
+        <div class="branding">
+            <div class="header-organization-banner"><a href="/"><img src="{{ theme_static(config.ISSUER_LOGO_PATH) }}" /></a></div>
         </div>
-    {% endblock %}
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-{% block scripts %}{% endblock %}
+        <div class="navigation-search">
+        </div>
+    </header>
+    <div id="main-content" class="main-content">
+        <div class="section">
+            <main class="main-primary">
+                <div class="container">
+                    {% block content %}{% endblock %}
+
+                </div>
+                {% block footer %}
+                <footer id="footer" class="global-footer">
+
+                    <div class="container">
+                        <div class="row hide-on-print" id="footer-info">
+                            <div class="col-md-6 col-sm-8 col-xs-12">
+                                <ul class="footer-links">
+                                    <li>
+                                        Contact: <span class="font-light"><a href="mailto:{{ config.ISSUER_EMAIL }}">{{ config.ISSUER_EMAIL }}</a></span>
+                                    </li>
+                                </ul>
+                                {% if request.path !="/faq" %}
+                                <ul class="footer-links">
+                                    <li>
+                                        Questions? <span class="font-light">Check out our <a href="/faq">FAQ page</a></span>
+                                    </li>
+                                </ul>
+                                {% endif %}
+                                {% if request.path != "/" %}
+                                <ul class="footer-links">
+                                    <li>
+                                        <a href="/">Home</a>&nbsp;|&nbsp;<a href="http://www.blockcerts.org/"> Powered by the Blockchain Certificates Project </a>
+                                    </li>
+                                </ul>
+                                {% else %}
+                                <ul class="footer-links">
+                                    <li>
+                                        <a href="http://www.blockcerts.org/"> Powered by the Blockchain Certificates Project </a>
+                                    </li>
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <div class="container">
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear())</script> State of California
+                        </div>
+                    </div>
+                </footer>
+                    {% endblock %}
+
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+                    {% block scripts %}{% endblock %}
+</main>
+        </div>
+    </div>
+
 </body>
 </html>

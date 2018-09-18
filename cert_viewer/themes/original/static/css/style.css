@@ -8,11 +8,10 @@
 /* GLOBAL STYLES */
 
 body {
-    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    padding: 35px;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
-a,
+/*a,
 a:hover,
 a:focus {
     color: #333;
@@ -21,29 +20,31 @@ a:focus {
 
 a:hover, a:focus {
     text-decoration: underline;
-}
+}*/
 
 a.no-decoration {
     text-decoration: none !important;
 }
 
 /* Custom default button */
-.btn-default,
+/*.btn-default,
 .btn-default:hover,
 .btn-default:focus {
     color: #fff;
-    text-shadow: none; /* Prevent inheritence from `body` */
+    text-shadow: none; 
     background-color: #222;
     border: 1px solid #222;
     border-radius: 0px;
-}
+}*/
 
 .font-light {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: font-family: "Source Sans Pro", sans-serif;
+    font-weight:200;
 }
 
 .font-bold {
-    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: font-family: "Source Sans Pro", sans-serif;
+    font-weight:700;
 }
 
 .no-wrap {

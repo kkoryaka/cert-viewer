@@ -5,49 +5,58 @@
 {% endblock %}
 
 {% block css %}
-    {{ super() }}
-    <link rel=stylesheet type=text/css href="{{ theme_static('css/index.css') }}">
+{{ super() }}
+<link rel=stylesheet type=text/css href="{{ theme_static('css/index.css') }}">
 {% endblock %}
 
 {% block content %}
     {% with messages = get_flashed_messages() %}
-        <div class="issuer-logo">
-            <img src="{{ theme_static(config.ISSUER_LOGO_PATH) }}"/>
-        </div>
+<header role="banner" id="header" class="global-header">
+    <div class="branding">
+        <div class="header-organization-banner"><a href="/"><img src="{{ theme_static(config.ISSUER_LOGO_PATH) }}" /></a></div>
+    </div>
+    <div class="navigation-search">
+    </div>
+</header>
 
-        <div class="intro-title">
-            <h1>{{ config.ISSUER_NAME }}</h1>
-        </div>
 
-    {% if messages %}
+
+            <div class="intro-title">
+                <h1>{{ config.ISSUER_NAME }}</h1>
+            </div>
+
+            {% if messages %}
             <div class="messages">
                 <h3>Check Your Inbox</h3>
                 {% for message in messages %}
-                    {{ message }}
+                {{ message }}
                 {% endfor %}
             </div>
-    {% else %}
-        <div class="intro-text">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-            mus. Donec qam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-            quis enim.
-        </div>
-
-    {% endif %}
-
-
-    <div class="recently-issued">
-        {% if config.RECENT_CERT_IDS %}
-            <div class="recent-title">
-                <h1>Recently Issued</h1>
+            {% else %}
+            <div class="intro-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec qam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+                quis enim.
             </div>
-            {% for cert_id in config.RECENT_CERT_IDS %}
+
+            {% endif %}
+
+
+            <div class="recently-issued">
+                {% if config.RECENT_CERT_IDS %}
+                <div class="recent-title">
+                    <h1>Recently Issued</h1>
+                </div>
+                {% for cert_id in config.RECENT_CERT_I
+                DS %}
                 <!--<a href="/{{ cert_id }}">{{ cert_id }}</a> <br>-->
                 <a href="{{ cert_id }}">{{ cert_id }}</a> <br>
-            {% endfor %}
-        {% endif %}
-    </div>
+                {% endfor %}
+                {% endif %}
+            </div>
 
-    {% endwith %}
-{% endblock %}
+            {% endwith %}
+            {% endblock %}
+
+

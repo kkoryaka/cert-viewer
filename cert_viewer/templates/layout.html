@@ -1,67 +1,102 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 
     {% block head %}
 
-        <!-- Metas
-        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <meta charset="utf-8">
-        <meta name="description" content="{{ site_description }}"/>
-        <meta name="author" content="{{ issuer_name }}"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <meta name="description" content="{{ site_description }}" />
+    <meta name="author" content="{{ issuer_name }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Favicon
-        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <link rel="shortcut icon" href="{{ theme_static('img/favicon.ico') }}">
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="shortcut icon" href="{{ theme_static('img/favicon.ico') }}">
 
-        <!-- Title
-        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <title>{% block title %}{% endblock %}</title>
+    <!-- Title
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <title>{% block title %}{% endblock %}</title>
 
-        <!-- CSS
-        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        {% block css %}
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <link rel=stylesheet type=text/css href="{{ theme_static('css/style.css') }}">
-        {% endblock %}
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    {% block css %}
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro" rel="stylesheet">
+    <link rel=stylesheet type=text/css href="{{ theme_static('css/cagov.core.css') }}">
+    <link rel=stylesheet type=text/css href="{{ theme_static('css/colorscheme-oceanside.css') }}">
+    <link rel=stylesheet type=text/css href="{{ theme_static('css/style.css') }}">
+    {% endblock %}
 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script type="text/javascript" src="/static/js/verification.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/verification.js"></script>
 
     {% endblock %}
 
 </head>
 
 <body>
-<div class="container">
+    <header role="banner" id="header" class="global-header">
+        <div class="branding">
+            <div class="header-organization-banner"><a href="/"><img src="{{ theme_static(config.ISSUER_LOGO_PATH) }}" /></a></div>
+        </div>
+        <div class="navigation-search">
+        </div>
+    </header>
+    <div id="main-content" class="main-content">
+        <div class="section">
+            <main class="main-primary">
 
-    <!-- Content
-      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    {% block content %}{% endblock %}
+                <div class="container">
+
+                    <!-- Content
+                    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+                    {% block content %}{% endblock %}
+
+
+                </div>
+
+
+            </main>
+        </div>
+    </div>
 
     <!-- Footer
-      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <div class="footer">
-        {% block footer %}
-            <div class="contact">Contact: <a href="mailto:{{ config.ISSUER_EMAIL }}">{{ config.ISSUER_EMAIL }}</a></div>
-            <div class="faq_link">Questions? Check out our <a href="/faq">FAQ page</a></div>
-            <div class="home_links"><a href="/">Home</a>&nbsp;|&nbsp;<a href="http://www.blockcerts.org/">Powered by the
-                Blockchain Certificates Project</a></div>
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    {% block footer %}
+    <footer id="footer" class="global-footer">
 
-        {% endblock %}
-    </div>
-</div>
+        <div class="container">
+            <div class="row">
+                <ul class="footer-links">
+                    <li>Contact: <a href="mailto:{{ config.ISSUER_EMAIL }}">{{ config.ISSUER_EMAIL }}</a></li>
+                    <li>Questions? Check out our <a href="/faq">FAQ page</a></li>
+                </ul>
+            </div>
+        </div>
 
-{% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"/>
+        <div class="copyright">
+            <div class="container">
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear())</script> State of California
+            </div>
+        </div>
+
+    </footer>
+    {% endblock %}
+
+
+
+
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" /></script>
     <script type="text/javascript" src="/static/js/verification.js"></script>
 
-{% endblock %}
+    {% endblock %}
 
 
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 </body>
 </html>

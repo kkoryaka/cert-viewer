@@ -13,34 +13,35 @@
     padding-left: 20px;
 }
 
-.container {
+/*.container {
     box-sizing: border-box;
     margin: 0 auto;
     max-width: 700px;
     padding: 5rem;
     position: relative;
     width: 100%;
-}
+}*/
 
 /* Custom default button */
-.btn-default,
+/*.btn-default,
 .btn-default:hover,
 .btn-default:focus {
     color: #fff;
-    text-shadow: none; /* Prevent inheritence from `body` */
+    text-shadow: none;
     background-color: #222;
     border: 1px solid #222;
     border-radius: 0px;
 }
+*/
 
 
-.font-light {
+/*.font-light {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 .font-bold {
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
+}*/
 
 .no-wrap {
     white-space: nowrap;
